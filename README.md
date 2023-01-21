@@ -73,4 +73,4 @@ We can take $X_o$ as the matrix of the array [5.4, 7.65, 9.4, 3.4] as spread alo
 We can take $z$ as a guassian random distributed noise:
 Ignoring $A$ for now, we can just set it equal to 1.
 
-* Here, I am converting all of the lists to python vectors so that we can do operations on them.
+Here, I am converting all of the lists to python vectors so that we can do operations on them.
