@@ -76,3 +76,26 @@ Ignoring $A$ for now, we can just set it equal to 1.
 Here, I am converting all of the lists to python vectors so that we can do operations on them.
 
 The way to do this in python is the following: 
+
+- Let's assume that the randomly generated vector is a column vector (5x1). 
+
+```
+import numpy as np
+
+# Generate a 5x1 vector
+x = np.random.rand(5, 1)
+print("Original Vector:")
+print(x)
+
+# Generate multiplicative noise
+multiplicative_noise = 0.5
+x = x * (1 + multiplicative_noise * np.random.randn(5, 1))
+print("Vector with multiplicative noise:")
+print(x)
+
+# Generate additive noise
+additive_noise = 0.1
+x = x + additive_noise * np.random.randn(5, 1)
+print("Vector with additive noise:")
+print(x)
+```
