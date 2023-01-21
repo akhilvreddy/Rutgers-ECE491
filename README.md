@@ -166,3 +166,5 @@ patches = ...
 # Reconstruct the image
 image = image.reconstruct_from_patches_2d(patches, (height, width))
 ```
+
+## Tackling the problem
