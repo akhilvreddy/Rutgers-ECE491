@@ -82,12 +82,19 @@ The way to do this in python is the following:
 ```
 import numpy as np
 
-# Generate a 5x1 vector
+# Generate a 5x1 vector (this can be our Xo - original vector) 
 x = np.random.rand(5, 1)
 print("Original Vector:")
 print(x)
 
-# Generate multiplicative noise
+# Generate multiplicative constant in the form of a matrix (must be 5x5 because of our conditions) with random values between 0.1 and 1.9
+A_matrix = np.random.uniform(low=0.1, high=1.9, size=(5, 5))
+x = x * A_matrix
+print("Vector with multiplicative constant included")
+print(x)
+
+
+# Generate multiplicative noise (this is the speckle part)
 multiplicative_noise = 0.5
 x = x * (1 + multiplicative_noise * np.random.randn(5, 1))
 print("Vector with multiplicative noise:")
