@@ -1,2 +1,2 @@
-# ECE491-SpecialProblems
-Research
+# ECE491, Special Problems
+
