@@ -108,8 +108,15 @@ print(x)
 ```
 
 ## Test Images
+As aforementioned, I used 4 very high quality images of lungs with pneumonia. Here is one of them - they all look pretty similar from a third perspective. 
 
-As aforementioned, I used 
+<p align="center">
+  <img 
+    width="544"
+    height="308"
+    src="https://user-images.githubusercontent.com/101938119/213531959-61496e6f-abce-4d1b-a72d-9b925ac867f8.png"
+  >
+</p>
 
 ### Image Patches
 
