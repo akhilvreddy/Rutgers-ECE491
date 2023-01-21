@@ -108,15 +108,19 @@ print(x)
 ```
 
 ## Test Images
-As aforementioned, I used 4 very high quality images of lungs with pneumonia. Here is one of them - they all look pretty similar from a third perspective. 
+As aforementioned, I used 4 very high quality images of lungs with pneumonia. Here is one of them - they all look pretty similar from a third person perspective. 
 
 <p align="center">
   <img 
-    width="544"
-    height="308"
-    src="https://user-images.githubusercontent.com/101938119/213531959-61496e6f-abce-4d1b-a72d-9b925ac867f8.png"
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Training%20Images/im2_pn_normal.jpeg"
   >
 </p>
+
+If you look closely, the image has a black border on all sides. Since each pixel can inlfuence the model, we would like to remove the border. This is what I did to remove the border from the image: 
+
+``` 
+
+```
 
 ### Image Patches
 
