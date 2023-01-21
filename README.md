@@ -74,3 +74,5 @@ We can take $z$ as a guassian random distributed noise:
 Ignoring $A$ for now, we can just set it equal to 1.
 
 Here, I am converting all of the lists to python vectors so that we can do operations on them.
+
+The way to do this in python is the following: 
