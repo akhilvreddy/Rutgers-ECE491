@@ -137,4 +137,5 @@ print(patches)
 ```
 
 > imported our test images into this code segment
+> 
 > [[[174 201 231],[174 201 231]],[[173 200 230],[173 200 230]]] is the output I got after running the code
