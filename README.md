@@ -106,3 +106,14 @@ x = x + additive_noise * np.random.randn(5, 1)
 print("Vector with additive noise:")
 print(x)
 ```
+
+### Image Patches
+
+Before moving further in the program, we would need to convert the testing images that I have into smaller patches. There are two reasons that we would have to do this. 
+
+- **Computational Power.** The main reason to change to patches is because the machines we are using cannot handle/support that much computation. Even after running our code with many patches from a singular high quality image, it took my machine (lenovo with i5) about 17.5 minutes to run the autoencoder model. Having to run multiple of models for multiple high quality images would be too much. GPU would be needed for this case. 
+
+- **Efficiency.** Making patches like this is decreasing computational power for a similar accuracy. We would want to do this if we are working without funding / low budget. 
+
+### Test patches
+Given an image like the one above, we can get *n* number of patches from that specific image using OpenCV.
