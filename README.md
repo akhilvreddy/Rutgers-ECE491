@@ -116,4 +116,25 @@ Before moving further in the program, we would need to convert the testing image
 - **Efficiency.** Making patches like this is decreasing computational power for a similar accuracy. We would want to do this if we are working without funding / low budget. 
 
 ### Test patches
-Given an image like the one above, we can get *n* number of patches from that specific image using OpenCV.
+Given an image like the one above, we can get *n* number of patches from that specific image using the *sklearn* library. 
+
+```
+from sklearn.feature_extraction import image
+
+# Load the image
+image = ...
+
+# Define the patch size (e.g. (64, 64))
+patch_size = (64, 64)
+
+# Extract the patches
+patches = image.extract_patches_2d(image, patch_size)
+
+# convert from 4d array down to 3d array for better use
+patches = patches.reshape(-1, patch_size[0], patch_size[1])
+
+print(patches)
+```
+
+> imported our test images into this code segment
+> [[[174 201 231],[174 201 231]],[[173 200 230],[173 200 230]]] is the output I got after running the code
