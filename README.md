@@ -139,3 +139,15 @@ print(patches)
 > imported our test images into this code segment
 > 
 > [[[174 201 231],[174 201 231]],[[173 200 230],[173 200 230]]] is the output I got after running the code
+
+If we wanted to go the other way around (patches back to the image), *sklearn* has a library to do that as well. 
+
+```
+from sklearn.feature_extraction import image
+
+# Load the patches
+patches = ...
+
+# Reconstruct the image
+image = image.reconstruct_from_patches_2d(patches, (height, width))
+```
