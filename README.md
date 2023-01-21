@@ -29,3 +29,6 @@ PyTorch is the biggest library that I will use since it is the main machine lear
 I’ll be using that to train and use neural networks that I have to make. Also, PyTorch is an
 important skill to learn as an ECE undergraduate because of its wide use and doing this project
 would help me.
+
+## Thesis 
+The use of advanced signal processing techniques, such as denoising combined with machine learning algorithms can significantly improve the accuracy of signal recovery from noisy image samples of lungs with pneumonia, leading to more accurate diagnosis and treatment of the disease.
