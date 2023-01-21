@@ -107,6 +107,10 @@ print("Vector with additive noise:")
 print(x)
 ```
 
+## Test Images
+
+As aforementioned, I used 
+
 ### Image Patches
 
 Before moving further in the program, we would need to convert the testing images that I have into smaller patches. There are two reasons that we would have to do this. 
