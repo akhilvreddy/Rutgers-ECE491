@@ -119,7 +119,19 @@ As aforementioned, I used 4 very high quality images of lungs with pneumonia. He
 If you look closely, the image has a black border on all sides. Since each pixel can inlfuence the model, we would like to remove the border. This is what I did to remove the border from the image: 
 
 ``` 
+import cv2
+# Load the image
+image = cv2.imread("image.jpg")
 
+# Define the border color (black)
+lower = [0, 0, 0]
+upper = [0, 0, 0]
+
+# Create a mask for the border color
+mask = cv2.inRange(image, lower, upper)
+
+# Remove the border color
+image_without_border = cv2.bitwise_not(image, image, mask=mask)
 ```
 
 ### Image Patches
