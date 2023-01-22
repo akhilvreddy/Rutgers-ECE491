@@ -312,3 +312,11 @@ patch.shape
 ```
 
 > (10000, 8, 8) is the output (patches size)
+
+Out of all those patches we would want to see one of them, and to make sure that they look pretty much the same throughout, we would want 
+```
+import random
+plt.imshow(255*patch[random.randint(0,N)],cmap='gray')
+```
+
+< This command really shows us the power of *matplotlib* in python.
