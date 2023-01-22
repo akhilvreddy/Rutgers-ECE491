@@ -467,7 +467,18 @@ loss_function = torch.nn.MSELoss()
 # Using an Adam Optimizer with lr = 0.1
 optimizer = torch.optim.Adam(model.parameters(),lr = 0.0001, weight_decay = 1e-8)
 ```
+What is happening here is that we are making an instance of our Autoencoder class, kind of like in an OOP language like java. After that, we set up our MSE calculations in a variable called *loss_function* which comes from PyTorch's MSELoss() class. 
 
+This line of code creates an optimizer object, which will be used to update the parameters of a model during training. The optimizer used here is the Adam optimizer, which is a popular choice for training neural networks. The Adam optimizer uses a combination of gradient descent and adaptive learning rate techniques to adjust the model's parameters.
+
+The first argument passed to the Adam function is the parameters of the model, so the optimizer will update the parameters of the model object. The second argument is the learning rate (lr), which is set to 0.0001. This value determines the step size at which the optimizer makes updates to the model's parameters. A smaller learning rate means that the optimizer will make smaller updates, while a larger learning rate means that the optimizer will make larger updates.
+
+The third argument is weight_decay, which is set to 1e-8. It helps to prevent overfitting by adding an L2 penalty on the weights of the model during optimization.
+
+Learning rate of 0.0001 and weight decay of 1e-8 are reasonable default values to start with for most problems.
+
+### Training the Autoencoder model to our specific data
+This is the most important part of the whole project - it is everything coming together and training the AE model so that we can get reconstructed images. 
 ```
 epochs = 300 #change the epoch value to be larger
 outputs = []
@@ -497,7 +508,20 @@ for epoch in range(epochs):
     print('epoch [{}/{}], loss:{:.8f}'
           .format(epoch + 1, epochs, loss.data.detach().numpy()))
 ```
+The outermost loop is running for a total of 300 epochs, which is the value assigned to the variable epochs. An epoch is a full training pass through all the training data.
 
+The innermost loop is iterating through a data loader object called patchloader, which is presumably an object that loads the images that will be used as input to the autoencoder. For each image in the patchloader, the code reshapes the image to a 2D tensor of shape (-1, k*k) and converts the image to a float data type.
+
+The autoencoder model is then applied to the image, and the output is assigned to the variable reconstructed. The loss function is then calculated by comparing the reconstructed image to the original image. The loss function used here is the mean squared error.
+
+The gradients are then set to zero, the gradient is computed and stored by the backward() method, and the step() method updates the model parameters using the optimizer.
+
+At each iteration of the inner loop, the loss is appended to the losses list and the output and reconstructed image are appended to the outputs list.
+
+Finally, the code prints out the current epoch number, the total number of epochs, and the value of the loss at that point in the training.
+
+### MSE Outputs
+Here is the output that we get from the model running above. It is worth to note that this took my machine 17 and a half minutes to run. This is important to think about for scalability. If it takes a decent laptop running i5 17.5 minutes, to train huge AI models, it would require a lot of CPU and GPU processing power which would cost a lot. 
 ```
 epoch [1/300], loss:0.06043266
 epoch [2/300], loss:0.07363702
@@ -520,6 +544,11 @@ epoch [298/300], loss:0.00542437
 epoch [299/300], loss:0.00350400
 epoch [300/300], loss:0.00568663
 ```
+This is the output of the training loop, which shows the value of the loss function at the end of each epoch. The loss function is a measure of how well the autoencoder is able to reconstruct the input images. A lower loss value indicates that the autoencoder is performing well and is able to accurately reconstruct the input images.
+
+It is clear from the output that the loss is decreasing as the training progresses. In the beginning, the loss is high around 0.06 and by the end, it is around 0.0055. And this decrease in loss indicates that the model is learning and improving with each epoch.
+
+It is also worth noting that the loss fluctuates, which is normal. There will be some variations in the loss values between different epochs, but overall, the loss is decreasing as the training progresses.
 
 ```
 l = []
