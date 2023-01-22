@@ -367,6 +367,12 @@ This is probably the most difficult and important step of the whole process. Sin
   
 These were the dimensions I used for the first time I did the autoenocder class and this brought in not the best results. The issue that happend with this is that the MSE was not as good as we wanted it to be, it was kind of all over the place. Here is what it looked like: 
 
+<p align="center">
+  <img 
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/imgw_firstmse.png"
+  >
+</p>
+
 As you can see, this is not a great reduction in MSE so we can do better. 
 
 #### The second attempt: 
