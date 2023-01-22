@@ -587,6 +587,12 @@ This plot will show how the loss changes over time and will help to monitor the 
 
 Here is what a good version of what a loss model would look like: 
 
+<p align="center">
+  <img 
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/imgz_idealloss.png"
+  >
+</p>
+
 ### Viewing our reconstructed image: 
 ```
 # print(reconstructed.shape)
