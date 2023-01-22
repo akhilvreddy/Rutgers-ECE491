@@ -585,7 +585,7 @@ for i, item in enumerate(reconstructed):
 
 Here is what one the reconstructed patches look like:
 
-We can also stitch them together using the method we talked about [above]() . Here is what the code would look like: 
+We can also stitch them together using the method we talked about [above](https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/README.md#test-patches) . Here is what the code would look like: 
 ```
 ```
 The next line is a for loop that iterates through the reconstructed tensor, which contains the output of the autoencoder. The loop assigns the current value in the tensor to the variable item and uses the enumerate() function to keep track of the current index of the loop.
