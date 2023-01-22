@@ -407,6 +407,12 @@ After not much of a decrease in MSE, I decided there were other ways to fix the 
 
 Here is the MSE we got by doing the above: 
 
+<p align="center">
+  <img 
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/imgy_secondmse.png"
+  >
+</p>
+
 ### Building the end to end Autoencoder class 
 ```
 # Creating a PyTorch class
@@ -591,6 +597,12 @@ for i, item in enumerate(reconstructed):
 ```
 
 Here is what one the reconstructed patches look like:
+
+<p align="center">
+  <img 
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/imgx_reconstructedpatch.png"
+  >
+</p>
 
 We can also stitch them together using the method we talked about [above](https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/README.md#test-patches). Here is what the code would look like: 
 ```
