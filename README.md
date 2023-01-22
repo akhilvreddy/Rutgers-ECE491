@@ -587,16 +587,8 @@ Here is what one the reconstructed patches look like:
 
 We can also stitch them together using the method we talked about [above](https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/README.md#test-patches) . Here is what the code would look like: 
 ```
+image = image.reconstruct_from_patches_2d(patches, (height, width))
 ```
-The next line is a for loop that iterates through the reconstructed tensor, which contains the output of the autoencoder. The loop assigns the current value in the tensor to the variable item and uses the enumerate() function to keep track of the current index of the loop.
-
-The next line reshapes the item tensor to the shape (-1, k, k) which is the original shape of the image.
-
-The plt.imshow() function is then used to display the image. The first argument passed to the function is the first element in the item tensor, which is the reshaped image. The detach().numpy() is used to convert the image tensor to a numpy array, so it can be plotted.
-
-The cmap='gray' argument specifies that the image should be displayed in grayscale, vmin=0 and vmax=1 specify the minimum and maximum value of the color scale.
-
-This code will display the reconstructed images one by one. The output will give an idea of how well the autoencoder is able to reconstruct the input images.
 
 ## Final Thoughts
 
@@ -609,5 +601,6 @@ We have also discussed some of the limitations of autoencoders, such as overfitt
 In summary, autoencoders are a versatile and powerful tool for machine learning and have many potential applications. Further research in this field could lead to new and improved methods for unsupervised feature learning and dimensionality reduction.
 
 I would like to thank Professor Jalali and my TA Mengyu Zhao for helping me and adivising me through this project.
+
 
 
