@@ -320,3 +320,11 @@ plt.imshow(255*patch[random.randint(0,N)],cmap='gray')
 ```
 
 > This command really shows us the power of *matplotlib* in python.
+
+<p align="center">
+  <img 
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/img2_firstpatch.png"
+  >
+</p>
+
+> We do not know exactly where and which part of the image this patch comes from, but we can definitely feel that this is a patch from the image above.
