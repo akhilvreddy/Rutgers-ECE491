@@ -328,3 +328,56 @@ plt.imshow(255*patch[random.randint(0,N)],cmap='gray')
 </p>
 
 > We do not know exactly where and which part of the image this patch comes from, but we can definitely feel that this is a patch from the image above.
+
+### More dependencies 
+Moving on to the real Machine Learning part, we would want to import *PyTorch* so that we can use it's ability to make NNs.
+```
+import torch
+from torchvision import datasets
+from torchvision import transforms
+```
+
+### Patches in Numpy
+Above, we have the patches from our image. Here, we would want to convert it to a numpy patch tensor so that we can do calculations and manipulations with it. Especially since we are going to be feeding these into our autoencoder. 
+```
+patchtensor = torch.from_numpy(patch)
+print(patchtensor.data.shape)
+type(patchtensor)
+```
+
+> torch.Size([10000, 8, 8]) (notice how size stays the same)
+> torch.Tensor (torch.Tensor is the type now)
+
+With everything settled, we would want to now ready the data (patches) for training. 
+```
+# DataLoader is used to load the dataset for training
+patchloader = torch.utils.data.DataLoader(dataset = patchtensor, batch_size = 32, shuffle = True)
+```
+
+### Choosing our Autoencoder size 
+
+This is probably the most difficult and important step of the whole process. Since choosing the size and dimensions have the most direct impact on the quality and efficacy of the autoencoder. I'll outline some of the sizes I have chosen. 
+
+#### The first attempt:
+1024 (32 x 32) ==> 625 (25 x 25) ==> 400 (20 x 20) ==> 225 (15 x 15) ==> 144 (12 x 12) ==> 121 (11 x 11) ==> 100 (10 x 10)
+
+
+100 (10 x 10) ==> 121 (11 x 11) ==> 144 (12 x 12) ==> 225 (15 x 15) ==> 400 (20 x 20) ==> 625 (25 x 25) ==> 1024 (32 x 32)
+  
+These were the dimensions I used for the first time I did the autoenocder class and this brought in not the best results. The issue that happend with this is that the MSE was not as good as we wanted it to be, it was kind of all over the place. Here is what it looked like: 
+
+As you can see, this is not a great reduction in MSE so we can do better. 
+
+#### The second attempt: 
+1024 (32 x 32) ==> 625 (25 x 25) ==> 400 (20 x 20) ==> 225 (15 x 15) ==> 144 (12 x 12) ==> 121 (11 x 11) ==> 100 (10 x 10)
+
+
+100 (10 x 10) ==> 121 (11 x 11) ==> 144 (12 x 12) ==> 225 (15 x 15) ==> 400 (20 x 20) ==> 625 (25 x 25) ==> 1024 (32 x 32)
+
+#### The third attempt: 
+After not much of a decrease in MSE, I decided there were other ways to fix the issues that I was having. Going to the bottle-neck need not to be uniform and I used this fact to my ability.
+
+1024 (32 x 32) ==> 625 (25 x 25) ==> 400 (20 x 20) ==> 225 (15 x 15) ==> 144 (12 x 12) ==> 121 (11 x 11) ==> 100 (10 x 10)
+
+
+100 (10 x 10) ==> 121 (11 x 11) ==> 144 (12 x 12) ==> 225 (15 x 15) ==> 400 (20 x 20) ==> 625 (25 x 25) ==> 1024 (32 x 32)
