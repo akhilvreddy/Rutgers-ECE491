@@ -454,3 +454,90 @@ class AE(torch.nn.Module):
         return decoded
 
 ```
+
+### Using our model 
+
+```
+# Model Initialization
+model = AE()
+
+# Validation using MSE Loss function
+loss_function = torch.nn.MSELoss()
+
+# Using an Adam Optimizer with lr = 0.1
+optimizer = torch.optim.Adam(model.parameters(),lr = 0.0001, weight_decay = 1e-8)
+```
+
+```
+epochs = 300 #change the epoch value to be larger
+outputs = []
+losses = []
+for epoch in range(epochs):
+#     print(epoch)
+    for image in patchloader:
+        image = image.reshape(-1, k*k)# Reshaping the image to (-1, 784)
+        image = image.float()
+
+    # Output of Autoencoder
+        reconstructed = model(image)
+
+    # Calculating the loss function
+        loss = loss_function(reconstructed, image)
+
+    # The gradients are set to zero,
+    # the gradient is computed and stored.
+    # .step() performs parameter update
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    # Storing the losses in a list for plotting
+        losses.append(loss)
+        outputs.append((epochs, image, reconstructed))
+    print('epoch [{}/{}], loss:{:.8f}'
+          .format(epoch + 1, epochs, loss.data.detach().numpy()))
+```
+
+```
+epoch [1/300], loss:0.06043266
+epoch [2/300], loss:0.07363702
+epoch [3/300], loss:0.06667658
+epoch [4/300], loss:0.06946521
+epoch [5/300], loss:0.05480300
+epoch [6/300], loss:0.09153187
+epoch [7/300], loss:0.09710239
+epoch [8/300], loss:0.07143620
+epoch [9/300], loss:0.05849411
+...
+epoch [291/300], loss:0.00412072
+epoch [292/300], loss:0.00621012
+epoch [293/300], loss:0.00533406
+epoch [294/300], loss:0.00514319
+epoch [295/300], loss:0.00585328
+epoch [296/300], loss:0.00399428
+epoch [297/300], loss:0.00497398
+epoch [298/300], loss:0.00542437
+epoch [299/300], loss:0.00350400
+epoch [300/300], loss:0.00568663
+```
+
+```
+l = []
+for j in range(len(losses)):
+    a = losses[j].detach().numpy()
+    l.append(a)
+
+# Defining the Plot Style
+plt.plot(l)
+plt.style.use('fivethirtyeight')
+plt.xlabel('Iterations')
+plt.ylabel('Loss')
+```
+
+```
+# print(reconstructed.shape)
+for i, item in enumerate(reconstructed):
+    item = item.reshape(-1, k, k)
+    plt.imshow(item[0].detach().numpy(),cmap='gray',vmin=0, vmax=1)
+#     plt.show()
+```
