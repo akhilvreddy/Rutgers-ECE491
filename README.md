@@ -208,6 +208,56 @@ Here is an image depicting the way autoencoders work. This image shows a one-lay
   >
 </p>
 
-
-
 Autoencoders are the biggest tools that allow us to solve inverse problems. The way we are going to solve the vector equation is by trying to inverse it, kind of like an algebraic equation, but we cannot do the same elementary operations for a vector equation involving matrices. 
+
+### Recovery Algorithms
+
+One of the ways to get the signal (or image in this case) back from speckle noise is by Projected Gradient Descent. The cost function in this case would be 
+
+#### Recovery using Generative Functions (GFs)
+
+Before getting into other more complicated algorithms, I want to go over others. Recovery using GFs is used for 
+
+
+#### Projected Gradient Descent (PGD)
+
+This is one of the ways we reduce the cost function step-by-step to drive closer to the solution everytime. Understading the pseudo-code is very important before coding it up. 
+
+* We are assuming that the result is **x<sub>t</sub>**.
+
+```
+Xo = diag(xo)    //initalize the matrix
+Bo = A(Xo)^2(A^T)
+
+for t = 1:T do 
+  for i = 1:n do
+  
+  s(t, i) = *some algorithmic step*
+  
+  end 
+  
+  x_t = pi*c_r*s_t
+  Xt = diag(xt)
+  Bt = A(X_t)^2(A^T)
+end
+```
+
+Let's unpack this alogrithm. The first two lines should be pretty self-explanatory - we are just setting up the basic matrix and constants in order to do the first iteration calcuations.
+
+The nested for loops is where we get into the meat of the algorithm. For the inner-most loop, we are trying to find values of s_(t,i). Since t stays the same for a single loop, we get n specific values of the s vector. 
+
+After exiting that loop, we set all the values of the x_t vector to a specific constant times those values. 
+
+The X_t matrix gets updated from this everytime. 
+
+By running through both of these for-loops we are inching closer towards an answer everytime. The main line that is getting us to reduce our cost-function is: 
+
+<p align="center">
+  <img 
+    width="508"
+    height="48"
+    src="https://github.com/akhilvreddy/ECE491/blob/main/pic2.png"
+  >
+</p>
+
+## Starting with the Autoencoder class
