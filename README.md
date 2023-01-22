@@ -301,3 +301,14 @@ plt.imshow(img,cmap='gray')
     src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/img1_matplotliboutput.png"
   >
 </p>
+
+### Getting the patches 
+As aforementioned, we wanted to use patch images for certain capacity reasons. Here is how we do it in the program.
+```
+k = 8
+N = 10000
+patch = image.extract_patches_2d(img, (k, k), max_patches = N, random_state=None) # change the max_patches number as well as random_state # change around the random_state value
+patch.shape
+```
+
+> (10000, 8, 8) is the output (patches size)
