@@ -608,4 +608,6 @@ We have also discussed some of the limitations of autoencoders, such as overfitt
 
 In summary, autoencoders are a versatile and powerful tool for machine learning and have many potential applications. Further research in this field could lead to new and improved methods for unsupervised feature learning and dimensionality reduction.
 
+I would like to thank Professor Jalali and my TA Mengyu Zhao for helping me and adivising me through this project.
+
 
