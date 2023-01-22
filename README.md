@@ -585,7 +585,7 @@ for i, item in enumerate(reconstructed):
 
 Here is what one the reconstructed patches look like:
 
-We can also stitch them together using the method we talked about [above](https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/README.md#test-patches) . Here is what the code would look like: 
+We can also stitch them together using the method we talked about [above](https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/README.md#test-patches). Here is what the code would look like: 
 ```
 image = image.reconstruct_from_patches_2d(patches, (height, width))
 ```
