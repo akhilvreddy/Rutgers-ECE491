@@ -319,4 +319,4 @@ import random
 plt.imshow(255*patch[random.randint(0,N)],cmap='gray')
 ```
 
-< This command really shows us the power of *matplotlib* in python.
+> This command really shows us the power of *matplotlib* in python.
