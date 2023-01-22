@@ -212,12 +212,11 @@ Autoencoders are the biggest tools that allow us to solve inverse problems. The 
 
 ### Recovery Algorithms
 
-One of the ways to get the signal (or image in this case) back from speckle noise is by Projected Gradient Descent. The cost function in this case would be 
+Recovery Algorithms are basically a set of instructions or steps that are used to restore or recover data that has been lost, deleted, or damaged. In this case, our images are going to be hit with speckle noise and we would want to recover the original, clean image from this. One of the ways to get the signal (or image in this case) back from speckle noise is by Projected Gradient Descent. The cost function in this case would be 
 
 #### Recovery using Generative Functions (GFs)
 
-Before getting into other more complicated algorithms, I want to go over others. Recovery using GFs is used for 
-
+Recovery using generative functions refers to the process of using generative models to recover or generate data that has been lost, corrupted, or never existed in the first place. Generative models are a class of machine learning models that are trained to generate new data that is similar to the training data.
 
 #### Projected Gradient Descent (PGD)
 
@@ -297,3 +296,8 @@ We can now output this image using the following command:
 ```
 plt.imshow(img,cmap='gray')
 ```
+<p align="center">
+  <img 
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/img1_matplotliboutput.png"
+  >
+</p>
