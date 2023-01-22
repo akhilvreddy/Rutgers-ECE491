@@ -400,3 +400,57 @@ After not much of a decrease in MSE, I decided there were other ways to fix the 
 
 Here is the MSE we got by doing the above: 
 
+### Building the end to end Autoencoder class 
+```
+# Creating a PyTorch class
+# 28*28 ==> 9 ==> 28*28 # change these values
+class AE(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+
+        # Building an linear encoder with Linear
+        # layer followed by Relu activation function
+        # 784 ==> 9
+
+        #grow first and then shrink
+        self.encoder = torch.nn.Sequential(
+            torch.nn.Linear(k * k, 2000),  # change these values, these are not big enough ## change the 32^2 to maybe 2048
+            torch.nn.ReLU(),
+            torch.nn.Linear(2000, 1000),
+            torch.nn.ReLU(),
+            torch.nn.Linear(1000, 500),
+            torch.nn.ReLU(),
+            torch.nn.Linear(500, 200),
+            torch.nn.ReLU(),
+            torch.nn.Linear(200, 100),
+        )
+    
+        '''
+        what can we do with the compressed form of the nn?
+        can we take this nn and put it somewhere else so that it can work as transfer of data with much less information
+        '''
+
+        # Building an linear decoder with Linear
+        # layer followed by Relu activation function
+        # The Sigmoid activation function
+        # outputs the value between 0 and 1
+        # 9 ==> 784
+        self.decoder = torch.nn.Sequential(
+            torch.nn.Linear(100, 200),
+            torch.nn.ReLU(),
+            torch.nn.Linear(200, 500),
+            torch.nn.ReLU(),
+            torch.nn.Linear(500, 1000),
+            torch.nn.ReLU(),
+            torch.nn.Linear(1000, 2000),
+            torch.nn.ReLU(),
+            torch.nn.Linear(2000, k * k),
+            torch.nn.ReLU()
+        )
+
+    def forward(self, x):
+        encoded = self.encoder(x)
+        decoded = self.decoder(encoded)
+        return decoded
+
+```
