@@ -134,6 +134,12 @@ mask = cv2.inRange(image, lower, upper)
 image_without_border = cv2.bitwise_not(image, image, mask=mask)
 ```
 
+Another way to do this is using the properies of python. 
+
+``` 
+
+```
+
 ### Image Patches
 
 Before moving further in the program, we would need to convert the testing images that I have into smaller patches. There are two reasons that we would have to do this. 
