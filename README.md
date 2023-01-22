@@ -550,6 +550,7 @@ It is clear from the output that the loss is decreasing as the training progress
 
 It is also worth noting that the loss fluctuates, which is normal. There will be some variations in the loss values between different epochs, but overall, the loss is decreasing as the training progresses.
 
+### Viewing our MSE 
 ```
 l = []
 for j in range(len(losses)):
@@ -563,6 +564,17 @@ plt.xlabel('Iterations')
 plt.ylabel('Loss')
 ```
 
+This code is plotting the training loss over the course of the training process.
+
+The first loop iterates through the losses list, which contains the loss values at the end of each iteration of the training loop. For each value in the losses list, the code converts the value to a numpy array and appends it to a new list l.
+
+The next part of the code is using the matplotlib library to plot the data in the l list. The plt.plot(l) function plots the values in the l list on the y-axis, and the x-axis is determined by the index of the values in the list.
+
+This plot will show how the loss changes over time and will help to monitor the training progress and identify if the model is overfitting or underfitting.
+
+Here is what a good version of what a loss model would look like: 
+
+### Viewing our reconstructed image: 
 ```
 # print(reconstructed.shape)
 for i, item in enumerate(reconstructed):
@@ -570,3 +582,30 @@ for i, item in enumerate(reconstructed):
     plt.imshow(item[0].detach().numpy(),cmap='gray',vmin=0, vmax=1)
 #     plt.show()
 ```
+
+Here is what one the reconstructed patches look like:
+
+We can also stitch them together using the method we talked about above. Here is what the code would look like: 
+```
+```
+The next line is a for loop that iterates through the reconstructed tensor, which contains the output of the autoencoder. The loop assigns the current value in the tensor to the variable item and uses the enumerate() function to keep track of the current index of the loop.
+
+The next line reshapes the item tensor to the shape (-1, k, k) which is the original shape of the image.
+
+The plt.imshow() function is then used to display the image. The first argument passed to the function is the first element in the item tensor, which is the reshaped image. The detach().numpy() is used to convert the image tensor to a numpy array, so it can be plotted.
+
+The cmap='gray' argument specifies that the image should be displayed in grayscale, vmin=0 and vmax=1 specify the minimum and maximum value of the color scale.
+
+This code will display the reconstructed images one by one. The output will give an idea of how well the autoencoder is able to reconstruct the input images.
+
+## Final Thoughts
+
+In conclusion, Autoencoders are a powerful tool for unsupervised feature learning and dimensionality reduction. They can be used in a wide range of applications, such as image and speech recognition, natural language processing, and anomaly detection.
+
+In this research paper, we have discussed the basic principles of autoencoders and how they work. We have also demonstrated how to implement an autoencoder in Pytorch, a popular deep learning framework. We have trained the autoencoder on a dataset of images and analyzed the results. The loss function decreased as the training progressed, and the output of the autoencoder was able to reconstruct the input images with high accuracy.
+
+We have also discussed some of the limitations of autoencoders, such as overfitting and the need for a large amount of data. However, these limitations can be overcome by using techniques such as regularization, denoising, and variational autoencoders.
+
+In summary, autoencoders are a versatile and powerful tool for machine learning and have many potential applications. Further research in this field could lead to new and improved methods for unsupervised feature learning and dimensionality reduction.
+
+
