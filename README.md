@@ -359,10 +359,10 @@ patchloader = torch.utils.data.DataLoader(dataset = patchtensor, batch_size = 32
 This is probably the most difficult and important step of the whole process. Since choosing the size and dimensions have the most direct impact on the quality and efficacy of the autoencoder. I'll outline some of the sizes I have chosen. 
 
 #### The first attempt:
-1024 (32 x 32) ==> 625 (25 x 25) ==> 400 (20 x 20) ==> 225 (15 x 15) ==> 144 (12 x 12) ==> 121 (11 x 11) ==> 100 (10 x 10)
+256 (16 x 16) ==> 196 (14 x 14) ==> 144 (12 x 12) ==> 100 (10 x 10) ==> 64 (8 x 8) ==> 36 (6 x 6) ==> 25 (5 x 5)
 
 
-100 (10 x 10) ==> 121 (11 x 11) ==> 144 (12 x 12) ==> 225 (15 x 15) ==> 400 (20 x 20) ==> 625 (25 x 25) ==> 1024 (32 x 32)
+25 (5 x 5) ==> 36 (6 x 6) ==> 64 (8 x 8) ==> 100 (10 x 10) ==> 144 (12 x 12) ==> 196 (14 x 14) ==> 256 (16 x 16)
   
 These were the dimensions I used for the first time I did the autoenocder class and this brought in not the best results. The issue that happend with this is that the MSE was not as good as we wanted it to be, it was kind of all over the place. Here is what it looked like: 
 
@@ -374,6 +374,22 @@ As you can see, this is not a great reduction in MSE so we can do better.
 
 100 (10 x 10) ==> 121 (11 x 11) ==> 144 (12 x 12) ==> 225 (15 x 15) ==> 400 (20 x 20) ==> 625 (25 x 25) ==> 1024 (32 x 32)
 
+This was better, but still not the best. Here is a snippet of how this is inputted into python: 
+
+```
+torch.nn.Linear(k * k, 2000), 
+torch.nn.ReLU(),
+torch.nn.Linear(2000, 1000),
+torch.nn.ReLU(),
+torch.nn.Linear(1000, 500),
+torch.nn.ReLU(),
+torch.nn.Linear(500, 200),
+torch.nn.ReLU(),
+torch.nn.Linear(200, 100),
+ ```
+ 
+Each Linear command is followed by a ReLU command. The ReLU activation function is commonly used in neural networks to introduce non-linearity and improve the model's ability to learn complex, non-linear relationships in the data and hence having linear commands followed by the ReLU commands help the model really understand the data.
+
 #### The third attempt: 
 After not much of a decrease in MSE, I decided there were other ways to fix the issues that I was having. Going to the bottle-neck need not to be uniform and I used this fact to my ability.
 
@@ -381,3 +397,6 @@ After not much of a decrease in MSE, I decided there were other ways to fix the 
 
 
 100 (10 x 10) ==> 121 (11 x 11) ==> 144 (12 x 12) ==> 225 (15 x 15) ==> 400 (20 x 20) ==> 625 (25 x 25) ==> 1024 (32 x 32)
+
+Here is the MSE we got by doing the above: 
+
