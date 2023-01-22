@@ -278,3 +278,22 @@ import cv2
 - Matplotlib is a plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt, or GTK. It provides a high-level interface for drawing attractive and informative statistical graphics.
 
 All of these libraries together help us get to our final goal - a fully working autoencoder method which stores the *MSE (mean squared error)*. 
+
+### Putting our Images into Python
+As aforementioned, we start by importing our image into python from our desktop. We need to divide by 255 because we want to normalize it. After normalization, we output the image and as you can see, it looks pretty much the same as what we had above. Thsi is because if you divide every pixel value by the same value, you are going to get the same image, just scaled down in value. 
+```
+# inputting the image from 
+input_img = "im1_pn_normal.jpeg"
+
+#saving the images that we have into vector variables
+img = cv2.imread(input_img,0)
+
+# the following command will help us understand what the image will look like (vectorized)
+img = img/255
+# this is going to show us the dimensions of the image  (we can make adjustments based off this)
+```
+
+We can now output this image using the following command:
+```
+plt.imshow(img,cmap='gray')
+```
