@@ -188,7 +188,7 @@ image = image.reconstruct_from_patches_2d(patches, (height, width))
 ## Tackling the problem
 
 ### Autoencoders 
-Autoencoders don't have a specific defintion but they are capable of reducing the data dimensions by ignoring noise in the data. It will then expand the data out agian to the dimensions of the initial dataset. There are usually four components inside an autoencoder, all of these combined make it up.
+Autoencoders can be used to remove the noise and distortions from the images by training the network to reconstruct the original, noise-free image from the noisy input image. Autoencoders don't have a specific defintion but they are capable of reducing the data dimensions by ignoring noise in the data. It will then expand the data out agian to the dimensions of the initial dataset. There are usually four components inside an autoencoder, all of these combined make it up.
 - Encoder  
   * In which the model learns how to reduce the input dimensions and compress the input data into an encoded representation.
 - Bottleneck 
