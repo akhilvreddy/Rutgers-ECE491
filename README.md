@@ -261,3 +261,20 @@ By running through both of these for-loops we are inching closer towards an answ
 </p>
 
 ## Starting with the Autoencoder class
+
+### Dependencies 
+As you can see in the main jupyter notebook, we have a couple of dependencies for this program. 
+```
+from sklearn.datasets import load_sample_image
+from sklearn.feature_extraction import image
+import numpy as np
+from matplotlib import pyplot as plt
+import cv2
+```
+
+- Scikit-learn (sklearn) is a popular Python library for machine learning. It offers a wide range of tools for tasks such as classification, regression, clustering, and model selection, and it is built on top of other popular Python libraries such as NumPy and Matplotlib. It provides a consistent interface to various machine learning models, making it easy to switch between them and to perform common tasks such as feature extraction, model selection, and evaluation. I have used it through the program, especially in my autoencoder class. 
+- NumPy is a Python library that provides support for large multi-dimensional arrays and matrices of numerical data, as well as a large collection of mathematical functions to operate on these arrays. It is a fundamental package for scientific computing with Python. 
+- OpenCV (Open Source Computer Vision Library) is a library of programming functions mainly aimed at real-time computer vision. It provides a number of features such as image processing, video analysis, object detection, and machine learning.
+- Matplotlib is a plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt, or GTK. It provides a high-level interface for drawing attractive and informative statistical graphics.
+
+All of these libraries together help us get to our final goal - a fully working autoencoder method which stores the *MSE (mean squared error)*. 
