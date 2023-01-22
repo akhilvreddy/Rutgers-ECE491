@@ -137,7 +137,8 @@ image_without_border = cv2.bitwise_not(image, image, mask=mask)
 Another way to do this is using the properies of python. 
 
 ``` 
-
+Image1 = img[:, 1:]
+Image1 = Image1[:, :-1]
 ```
 
 ### Image Patches
