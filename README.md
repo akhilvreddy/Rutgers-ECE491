@@ -1,4 +1,4 @@
-# ECE491, Special Problems
+# Special Problems, ECE491
 
 ## Introduction
 The main goal of this research is to recover signals in the presence of Speckle Noise. The way this can be done is using Machine Learning, Autoencoders, and algorithms based off that. My approach, code, algorithms, and process will be outlined below.
@@ -587,6 +587,12 @@ This plot will show how the loss changes over time and will help to monitor the 
 
 Here is what a good version of what a loss model would look like: 
 
+<p align="center">
+  <img 
+    src="https://github.com/akhilvreddy/ECE491-SpecialProblems/blob/main/Reference%20Images/imgz_idealloss.png"
+  >
+</p>
+
 ### Viewing our reconstructed image: 
 ```
 # print(reconstructed.shape)
@@ -619,7 +625,7 @@ We have also discussed some of the limitations of autoencoders, such as overfitt
 
 In summary, autoencoders are a versatile and powerful tool for machine learning and have many potential applications. Further research in this field could lead to new and improved methods for unsupervised feature learning and dimensionality reduction.
 
-I would like to thank Professor Jalali and my TA Mengyu Zhao for helping me and adivising me through this project.
+I would like to thank Professor Jalali and my TA Mengyu Zhao for helping me and advising me through this project.
 
 
 
